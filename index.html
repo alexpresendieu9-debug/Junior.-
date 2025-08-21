@@ -36,13 +36,17 @@ client.on('message', async msg => {
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
+  <meta <!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Junior</title>
   <style>
     body {
       font-family: Arial, sans-serif;
       text-align: center;
-      background: linear-gradient(to right, #2196F3, #21CBF3);
+      background: linear-gradient(to right, #00c6ff, #0072ff);
       color: white;
       margin: 0;
       padding: 0;
@@ -57,28 +61,28 @@ client.on('message', async msg => {
     p {
       font-size: 1.2em;
     }
-    main {
+    .content {
       background: white;
       color: black;
-      padding: 40px 20px;
-      border-radius: 10px;
+      padding: 20px;
       margin: 20px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-    }
-    a.whatsapp-btn {
+      border-radius: 10px;
       display: inline-block;
-      background-color: #25D366;
-      color: white;
-      font-size: 18px;
-      font-weight: bold;
-      padding: 12px 25px;
-      border-radius: 8px;
-      text-decoration: none;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.2);
-      margin-top: 20px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     }
-    a.whatsapp-btn:hover {
-      background-color: #1ebe5d;
+    .whatsapp-btn {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 10px 20px;
+      font-size: 18px;
+      color: white;
+      background: #25D366;
+      border-radius: 5px;
+      text-decoration: none;
+      transition: background 0.3s;
+    }
+    .whatsapp-btn:hover {
+      background: #1ebe5d;
     }
   </style>
 </head>
@@ -88,14 +92,15 @@ client.on('message', async msg => {
     <p>Créé avec GitHub Pages 🚀</p>
   </header>
 
-  <main>
+  <div class="content">
     <p>Ceci est ma première page hébergée sur GitHub Pages ! 🎉</p>
     <p>Je vais continuer à l’améliorer petit à petit.</p>
-
-    <!-- ✅ Bouton WhatsApp -->
-    <a href="https://wa.me/22932498825" target="_blank" class="whatsapp-btn">
+    
+    <!-- Bouton WhatsApp -->
+    <a href="https://wa.me/50932498825" target="_blank" class="whatsapp-btn">
       💬 Discuter sur WhatsApp
     </a>
-  </main>
+  </div>
 </body>
-</html>
+</html>="viewport" content="width=device-width, initial-scale=1.0">
+
