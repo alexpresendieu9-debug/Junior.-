@@ -1,65 +1,40 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Junior</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #f0f4f8; /* gris clair joli */
-      color: #333;
-      text-align: center;
+// index.js
+const { Client, LocalAuth } = require('whatsapp-web.js');
+const qrcode = require('qrcode-terminal');
+
+// Initialisation du bot avec authentification locale
+const client = new Client({
+    authStrategy: new LocalAuth()
+});
+
+// Affiche un QR Code dans le terminal pour lier ton WhatsApp
+client.on('qr', qr => {
+    qrcode.generate(qr, {small: true});
+});
+
+// Quand le bot est prêt
+client.on('ready', () => {
+    console.log('✅ Bot WhatsApp connecté et prêt !');
+});
+
+// Commande : !tagall
+client.on('message', async msg => {
+    if (msg.body.toLowerCase() === '!tagall') {
+        const chat = await msg.getChat();
+
+        if (chat.isGroup) {
+            let text = '👥 @all\n\n';
+            let mentions = [];
+
+            for (let participant of chat.participants) {
+                const contact = await client.getContactById(participant.id._serialized);
+                mentions.push(contact);
+                text += `@${participant.id.user} `;
+            }
+
+            await chat.sendMessage(text, { mentions });
+        }
     }
+});
 
-    header {
-      background: linear-gradient(135deg, #007BFF, #00C6FF);
-      color: white;
-      padding: 50px 20px;
-    }
-
-    header h1 {
-      font-size: 3em;
-      margin: 0;
-    }
-
-    header p {
-      font-size: 1.3em;
-      margin-top: 10px;
-    }
-
-    main {
-      padding: 40px 20px;
-    }
-
-    main p {
-      font-size: 1.2em;
-      margin: 20px 0;
-    }
-
-    footer {
-      background-color: #007BFF;
-      color: white;
-      padding: 15px;
-      margin-top: 50px;
-    }
-  </style>
-</head>
-<body>
-  <header>
-    <h1>Bienvenue sur le site de Junior</h1>
-    <p>Créé avec GitHub Pages 🚀</p>
-  </header>
-
-  <main>
-    <p>Ceci est ma première page hébergée sur GitHub Pages ! 🎉</p>
-    <p>Je vais continuer à l’améliorer petit à petit.</p>
-  </main>
-
-  <footer>
-    <p>© 2025 Junior - Tous droits réservés</p>
-  </footer>
-</body>
-</html>
+client.initialize();
