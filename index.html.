@@ -7,35 +7,56 @@
   <style>
     body {
       font-family: Arial, sans-serif;
-      text-align: center;
-      background: linear-gradient(135deg, #4facfe, #00f2fe);
-      color: white;
       margin: 0;
       padding: 0;
+      background-color: #f0f4f8; /* gris clair joli */
+      color: #333;
+      text-align: center;
     }
+
     header {
+      background: linear-gradient(135deg, #007BFF, #00C6FF);
+      color: white;
       padding: 50px 20px;
     }
-    h1 {
+
+    header h1 {
       font-size: 3em;
       margin: 0;
     }
-    p {
-      font-size: 1.2em;
+
+    header p {
+      font-size: 1.3em;
       margin-top: 10px;
     }
+
+    main {
+      padding: 40px 20px;
+    }
+
+    main p {
+      font-size: 1.2em;
+      margin: 20px 0;
+    }
+
     footer {
+      background-color: #007BFF;
+      color: white;
+      padding: 15px;
       margin-top: 50px;
-      padding: 20px;
-      background: rgba(0,0,0,0.2);
     }
   </style>
 </head>
 <body>
   <header>
-    <h1>Bienvenue sur le site de Junior 🚀</h1>
-    <p>Créé avec GitHub Pages</p>
+    <h1>Bienvenue sur le site de Junior</h1>
+    <p>Créé avec GitHub Pages 🚀</p>
   </header>
+
+  <main>
+    <p>Ceci est ma première page hébergée sur GitHub Pages ! 🎉</p>
+    <p>Je vais continuer à l’améliorer petit à petit.</p>
+  </main>
 
   <footer>
     <p>© 2025 Junior - Tous droits réservés</p>
